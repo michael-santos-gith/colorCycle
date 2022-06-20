@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .circle {
+    margin: 40px;
+    width: 241px;
+    height: 241px;
+    border: 1px solid black;
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+#container .input-data input {
+    margin-right: 20px;
+    width: 81px;
+    height: 21px;
+}
+
+#container .input-data input:last-child, 
+#container .interation-buttons button:last-child {
+    margin-right: 0;
+}
+
+#container .interation-buttons button {
+    margin: 40px 38px 59px 0;
+    width: 121px;
+    height: 41px;
+}
