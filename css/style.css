@@ -1,15 +1,5 @@
 :root {
-    --color-01: #00ffff;
-    --color-02: #F2D7D9;
-    --color-03: #D3CEDF;
-    --color-04: #9CB4CC;
-    --color-05: #748DA6;
-    --color-06: #87805E;
-    --color-07: #FF7396;
-    --color-08: #F4E06D;
-    --color-09: #3EC70B;
-    --color-10: #3B44F6;
-    --color-11: #3C2C3E;
+    --color-01: #fff;
 }
 
 * {
@@ -36,12 +26,11 @@
 }
 
 #container .input-data input {
-    margin-right: 20px;
     width: 81px;
     height: 21px;
+    text-align: center;
 }
-
-#container .input-data input:last-child, 
+ 
 #container .interation-buttons button:last-child {
     margin-right: 0;
 }
@@ -54,14 +43,4 @@
 
 @keyframes changeColor {
     0% {background-color: var(--color-01);}
-    10% {background-color: var(--color-02);}
-    20% {background-color: var(--color-03);}
-    30% {background-color: var(--color-04);}
-    40% {background-color: var(--color-05);}
-    50% {background-color: var(--color-06);}
-    60% {background-color: var(--color-07);}
-    70% {background-color: var(--color-08);}
-    80% {background-color: var(--color-09);}
-    90% {background-color: var(--color-10);}
-    100% {background-color: var(--color-11);}
 }

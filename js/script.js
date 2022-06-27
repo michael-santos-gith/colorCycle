@@ -8,21 +8,25 @@ function randomColor() {
 }
 
 function decimalToHex(func) {
-  let numberHex, RED, GREEN, BLUE;
+  let numberHex, color;
 
-  numberHex = randomColor().toString();
+  numberHex = func.toString();
   numberHex = numberHex.replace(/\D+/g, ',');
   numberHex = numberHex.slice(1);
-  [ RED, GREEN, BLUE ] = numberHex.split(',');
-
-  return console.log(RED,GREEN,BLUE);
+  color = numberHex.split(',').join('');
+  color = Number(color).toString(16);
+  
+  return color;
 }
 
-function colorCycle() {
-  for (let index = 1; index <= 11; index++) {
-    document.documentElement.style.setProperty(`--color-0${index}`, randomColor());
-    decimalToHex(randomColor()); 
-  }
+function colorCycle(colorRandom, hexDecimal) {
+  let color, colorChange;
+  setInterval(() => {
+    color = colorRandom();
+    colorChange = hexDecimal(color);
+    document.getElementById("hex-color").value = colorChange;
+    document.documentElement.style.setProperty(`--color-01`, color);
+  }, 1000)
 }
 
-colorCycle();
+colorCycle(randomColor, decimalToHex);
