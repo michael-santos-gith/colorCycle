@@ -1,3 +1,5 @@
+const buttons = document.querySelectorAll('button');
+
 function random(min, max) {
   const number = Math.floor(Math.random() * (max - min)) + min;
   return number;
@@ -19,14 +21,31 @@ function decimalToHex(func) {
   return color;
 }
 
-function colorCycle(colorRandom, hexDecimal) {
+function colorCycle() {
   let color, colorChange;
   setInterval(() => {
-    color = colorRandom();
-    colorChange = hexDecimal(color);
+    color = randomColor();
+    colorChange = decimalToHex(color);
     document.getElementById("hex-color").value = colorChange;
     document.documentElement.style.setProperty(`--color-01`, color);
   }, 1000)
 }
 
-colorCycle(randomColor, decimalToHex);
+function stopColors() {
+  clearInterval(colorCycle());
+}
+
+buttons.forEach((element, index, array) => {
+  array[1].disabled = true;
+  element.addEventListener('click', () => {
+    if (index === 0) {
+      // colorCycle();
+      array[index].disabled = true;
+      array[1].disabled = false;
+    } else if (index === 1) {
+      // stopColors();
+      array[index].disabled = true;
+      array[0].disabled = false;
+    }
+  })
+})
