@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll('button');
+let colors;
 
 function random(min, max) {
   const number = Math.floor(Math.random() * (max - min)) + min;
@@ -12,38 +13,38 @@ function randomColor() {
 function decimalToHex(func) {
   let numberHex, color;
 
-  numberHex = func.toString();
-  numberHex = numberHex.replace(/\D+/g, ',');
-  numberHex = numberHex.slice(1);
-  color = numberHex.split(',').join('');
+  color = numberHex = func.toString().replace(/\D+/g, ',').slice(1).split(',').join('');
   color = Number(color).toString(16);
   
   return color;
 }
 
-function colorCycle() {
+function displayColor() {
   let color, colorChange;
-  setInterval(() => {
-    color = randomColor();
-    colorChange = decimalToHex(color);
-    document.getElementById("hex-color").value = colorChange;
-    document.documentElement.style.setProperty(`--color-01`, color);
-  }, 1000)
+  color = randomColor();
+  colorChange = decimalToHex(color);
+  document.getElementById("hex-color").value = colorChange;
+  document.documentElement.style.setProperty(`--color-01`, color);
+}
+
+function colorCycle() {
+  colors = setInterval(displayColor, 1000)
 }
 
 function stopColors() {
-  clearInterval(colorCycle());
+  clearInterval(colors);
+  colors = null;
 }
 
 buttons.forEach((element, index, array) => {
   array[1].disabled = true;
   element.addEventListener('click', () => {
     if (index === 0) {
-      // colorCycle();
+      colorCycle();
       array[index].disabled = true;
       array[1].disabled = false;
     } else if (index === 1) {
-      // stopColors();
+      stopColors(colors);
       array[index].disabled = true;
       array[0].disabled = false;
     }
