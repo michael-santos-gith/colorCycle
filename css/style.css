@@ -26,8 +26,8 @@
 }
 
 #container .input-data input {
-    width: 81px;
-    height: 21px;
+    width: 161px;
+    height: 41px;
     text-align: center;
 }
  
@@ -38,7 +38,7 @@
 #container .interation-buttons button {
     margin: 40px 38px 59px 0;
     width: 121px;
-    height: 41px;
+    height: 61px;
 }
 
 @keyframes changeColor {
