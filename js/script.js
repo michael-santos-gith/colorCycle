@@ -43,14 +43,18 @@ buttons.forEach((element, index, array) => {
       colorCycle();
       array[index].disabled = true;
       array[index].style.border = 'none';
+      array[index].style.cursor = 'no-drop';
       array[1].disabled = false;
-      array[1].style.border = `${1}px solid black`;
+      array[1].style.border = `${1}px solid #516BEB`;
+      array[1].style.cursor = 'pointer';
     } else if (index === 1) {
       stopColors(colors);
       array[index].disabled = true;
       array[index].style.border = 'none';
+      array[index].style.cursor = 'no-drop';
       array[0].disabled = false;
-      array[0].style.border = `${1}px solid black`;
+      array[0].style.border = `${1}px solid #516BEB`;
+      array[0].style.cursor = 'pointer';
 
     }
   })
