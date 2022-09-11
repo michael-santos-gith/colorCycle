@@ -28,7 +28,7 @@ function displayColor() {
 }
 
 function colorCycle() {
-  colors = setInterval(displayColor, 1000)
+  colors = setInterval(displayColor, 1000);
 }
 
 function stopColors() {
@@ -36,26 +36,24 @@ function stopColors() {
   colors = null;
 }
 
+function efectButtons(array, index, disableButton=true, styleCursor='no-drop') {
+  array[index].disabled = disableButton;
+  array[index].style.cursor = styleCursor;
+  array[index].style.border = `${2}px solid #516BEB`;
+}
+
 buttons.forEach((element, index, array) => {
-  array[1].disabled = true;
+  efectButtons(array, 1, true);
+  efectButtons(array, 0, false, 'pointer');
   element.addEventListener('click', () => {
     if (index === 0) {
       colorCycle();
-      array[index].disabled = true;
-      array[index].style.border = 'none';
-      array[index].style.cursor = 'no-drop';
-      array[1].disabled = false;
-      array[1].style.border = `${1}px solid #516BEB`;
-      array[1].style.cursor = 'pointer';
+      efectButtons(array, 0, true);
+      efectButtons(array, 1, false, 'pointer');
     } else if (index === 1) {
       stopColors(colors);
-      array[index].disabled = true;
-      array[index].style.border = 'none';
-      array[index].style.cursor = 'no-drop';
-      array[0].disabled = false;
-      array[0].style.border = `${1}px solid #516BEB`;
-      array[0].style.cursor = 'pointer';
-
+      efectButtons(array, 1, true);
+      efectButtons(array, 0, false, 'pointer');
     }
   })
 })

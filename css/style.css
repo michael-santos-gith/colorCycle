@@ -59,6 +59,7 @@ body {
     background-color: var(--color-03);
     color: var(--color-05);
     border-radius: 5px;
+    border: none;
 }
 
 @keyframes changeColor {
