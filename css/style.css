@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20%;
 }
 
 #container .circle {
@@ -25,10 +26,17 @@
     animation: changeColor 6s ease infinite;
 }
 
+#container .input-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #container .input-data input {
-    width: 161px;
-    height: 41px;
     text-align: center;
+    padding: 10px;
+    width: 50%;
+    border: 1px solid black;
 }
  
 #container .interation-buttons button:last-child {
@@ -39,6 +47,7 @@
     margin: 40px 38px 59px 0;
     width: 121px;
     height: 61px;
+    border: 1px solid black;
 }
 
 @keyframes changeColor {
