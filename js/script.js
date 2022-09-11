@@ -42,11 +42,16 @@ buttons.forEach((element, index, array) => {
     if (index === 0) {
       colorCycle();
       array[index].disabled = true;
+      array[index].style.border = 'none';
       array[1].disabled = false;
+      array[1].style.border = `${1}px solid black`;
     } else if (index === 1) {
       stopColors(colors);
       array[index].disabled = true;
+      array[index].style.border = 'none';
       array[0].disabled = false;
+      array[0].style.border = `${1}px solid black`;
+
     }
   })
 })
